@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Practice Test
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="background-tint hide"></div>
+    <div class="grid">
+      <div class="not-the-test">
+        <div class="section">
+          <p class="section-title">Save/Load Tests</p>
+          <p class="title-two">Load test:</p>
+          <textarea spellcheck="false" class="text-input input-code" placeholder="Paste encrypted code here"></textarea>
+          <div style="margin-top: 10px" class="button-container">
+            <button onclick="
+              loadTest();
+            " class="blue-button"><img class="button-icon" src="pencil-writing-on-a-paper-svgrepo-com.svg">Load test</button>
+          </div>
+          <div style="margin-top: 10px" class="line-break"></div>
+          <p class="title-two">Save test:</p>
+          <p class="indented">
+            To save this test, press "Generate save code", then press "Copy" and store inside a secure word processor or send to friends to view this test.
+          </p>
+          <textarea readonly class="text-input output-code" style="margin-bottom: 10px;" placeholder="Generated code will go here"></textarea>
+          <div class="button-container">
+            <button onclick="
+              generateSaveCode();
+            " class="blue-button"><img class="button-icon" src="download-svgrepo-com.svg">Generate save code</button>
+            <button onclick="
+              copySaveCode();
+            " class="blue-button"><img class="button-icon" src="copy-svgrepo-com.svg">Copy</button>
+          </div>
+        </div>
+        <div class="edit-info">
+          <div class="section editAdd">
+            <p class="section-title">Add question</p>
+            <div class="new-question-grid">
+              <p class="title-two">Question type:</p>
+              <select class="select-questions">
+                <option>Multiple Choice</option>
+                <option>True or False</option>
+              </select>
+            </div>
+            <div class="line-break"></div>
+            <p style="margin-top: 10px;" class="title-two">Make a title for your question</p>
+            <input onkeydown="
+              if (event.key === 'Enter') {
+                addTitle();
+              } 
+            " placeholder="Your question" class="normal-input question-title">
+            <div class="new-question-grid">
+              <div class="line-break"></div><div class="line-break"></div>
+              <p class="title">Correct answer:</p>
+              <input placeholder="Your correct answer" class="thin-input correct">
+              <div class="line-break"></div><div class="line-break"></div>
+              <p class="title">Wrong answer #1:</p>
+              <input class="thin-input wrong1" placeholder="Add something relating to the question, but wrong">
+              <p class="title">Wrong answer #2:</p>
+              <input class="thin-input wrong2" placeholder="Your wrong answer...">
+              <p class="title">Wrong answer #3:</p>
+              <input class="thin-input wrong3" placeholder="Another wrong answer">
+            </div>
+            <div style="margin-top: 10px;" class="button-container">
+              <button class="blue-button" onclick="
+                addQuestion();
+              "><img class="button-icon" src="plus-svgrepo-com.svg">Add Question</button>
+            </div>
+          </div>
+          <div style="margin-top: 10px;" class="section">
+            <p class="section-title">Test settings</p>
+            <p class="title">Make a title for your test</p>
+            <input onkeyup="
+              updateTitle();
+            " placeholder="Your title" class="thick-input test-input-title">
+          </div>
+        </div>
+      </div>
+        <div class="section test-questions">
+          <div class="button-container">
+            <button onclick="
+              handleTestMode();
+            " class="blue-button mode-switch"><img class="button-icon" src="pencil-writing-on-a-paper-svgrepo-com.svg">Start test</button>
+          </div>
+          <p class="test-title"></p>
+        </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
